@@ -19,7 +19,8 @@ git commit -m “.gitignore 파일수정"
 ```
 
 <br>
-# 명령어 문법<br>
+# 명령어 문법
+<br>
 
 ---
 
