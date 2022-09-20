@@ -1,6 +1,6 @@
 # Svelte를 사용하는 협업 프로젝트 setting
 
-**1. svelte 환경 설정**
+### svelte 환경 설정
 
 ```
 npm create svelte@latest 폴더명
@@ -8,12 +8,15 @@ cd 폴더명
 npm install
 ```
 
-**2. github**
 <br>
-새로운 repository 생성
 
-**3. git**
+### 2. github
+
+새로운 repository 생성
 <br>
+<br>
+
+### 3. git
 
 ```
 //git 생성
