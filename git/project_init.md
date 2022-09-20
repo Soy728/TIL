@@ -1,14 +1,12 @@
 # Svelte를 사용하는 협업 프로젝트 setting
 
-### svelte 환경 설정
+### 1. svelte 환경 설정
 
 ```
 npm create svelte@latest 폴더명
 cd 폴더명
 npm install
 ```
-
-<br>
 
 ### 2. github
 
