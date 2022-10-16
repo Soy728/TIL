@@ -112,3 +112,78 @@ slot을 사용하여 컴포넌트를 구성할 떄, slot의 css를 다루기 위
 		</div>
 	{/if}
 ```
+
+<br>
+
+#### slot props
+
+: 하나의 파일안에서 여러 개의 컴포넌트를 사용하고, 컴포넌트 별로 지역적인 변수를 사용하고 싶을 때 유용한 기능
+<br>
+
+상위 컴포넌트에서 사용하는 값을 하위 컴포넌트로 넘기는 방법은 export, import도 있지만 이렇게 사용하면 상위 컴포넌트에서 값을 import해서 쓸 때 하나의 값으로만 사용할 수 밖에 없다. 파일안에서 global한 변수로 사용이 되는 것이다.
+<br>
+우리가 slot을 사용하여 코드를 작성하는 것은 slot안에 여러개의 컴포넌트가 자유롭게 올 수 있도록 하기 위함이고, 각 컴포넌트 별로 다른 값을 사용하고 싶을 수 있다. 이럴 때 유용하게 사용되는 것이 `slot props` 이다.
+`slot props` 는 `하나의 컴포넌트 안에서 local하게 변수를 사용할 수 있다.`
+
+```
+//하위 컴포넌트
+<script>
+	let hovering;
+
+	function enter() {
+		hovering = true;
+	}
+
+	function leave() {
+		hovering = false;
+	}
+</script>
+
+<div on:mouseenter={enter} on:mouseleave={leave}>
+	<slot hovering={hovering}></slot>
+</div>
+```
+
+slot 안에 넘기고 싶은 값을 `<slot {"값"} />` 을 통해 넘겨준다.
+
+```
+//상위 컴포넌트
+
+<script>
+	import Hoverable from './Hoverable.svelte';
+</script>
+
+<Hoverable let:hovering={active}>
+	<div class:active>
+		{#if active}
+			<p>I am being hovered upon.</p>
+		{:else}
+			<p>Hover over me!</p>
+		{/if}
+	</div>
+</Hoverable>
+
+<Hoverable let:hovering={active}>
+	<div class:active>
+		{#if active}
+			<p>I am being hovered upon.</p>
+		{:else}
+			<p>Hover over me!</p>
+		{/if}
+	</div>
+</Hoverable>
+
+<Hoverable let:hovering={active}>
+	<div class:active>
+		{#if active}
+			<p>I am being hovered upon.</p>
+		{:else}
+			<p>Hover over me!</p>
+		{/if}
+	</div>
+</Hoverable>
+```
+
+상위 컴포넌트에서 하위 컴포넌트를 사용할 때, `let:hovering`으로 선언을 한다. 기본값으로 선언을 해서 사용해도 좋고 새로운 이름을 붙여 사용하는 것도 가능하다. `let:hovering = {active}`
+<br>
+이렇게 사용하면 각 hoverable 컴포넌트 마다 다른 hovering(active)값을 줄 수 있으니 매우 편리하다.
