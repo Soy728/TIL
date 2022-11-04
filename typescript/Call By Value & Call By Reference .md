@@ -2,8 +2,6 @@
 
 ## primitive type & reference type
 
-<br>
-
 ### primitive type (원시 타입)
 
 - number
@@ -69,7 +67,7 @@ addOne(a);
 console.log(a); // 1
 ```
 
-a 변수는 값이 복사되어 addOne 함수에 인자로 할당된다. 따라서 변수 a와 addOne 함수에 인자로 전해진 a는 서로 다른 주솟 값을 가지고 있다.
+a 변수의 값이 복사되어 addOne 함수에 인자로 할당된다. 따라서 변수 a와 addOne 함수에 인자로 전해진 a는 (= b) 서로 다른 주솟 값을 가지고 있다.
 
 call by value는 원본 값과 동일한 값을 복사해서 사용하는 개념이다. 따라서 원본 변수에는 아무런 영향이 없다.
 원시 타입의 경우 call by value가 일어난다.
@@ -94,7 +92,7 @@ console.log(a); // { name : 'choco' }
 
 a 오브젝트는 주솟값이 복사되어 changeName 함수의 인자로 전달된다. 따라서 a와 person은 같은 주솟값을 가지고 있으므로 같은 값을 바라보고 있다.
 
-call by reference도 call by value와 동일하게 원본값을 복사해서 사용하지만, 뭔본 값이 가르키는 대상이 그냥 값이 아닌 `주솟값`이라는 점에서 차이가 난다.
+call by reference도 call by value와 동일하게 원본값을 복사해서 사용하지만, 뭔본 값이 가르키는 대상이 그냥 값이 아닌 `주솟값`이라는 점에서 차이가 난다. 참조 타입의 경우 call by reference가 일어난다.
 
 <br>
 
