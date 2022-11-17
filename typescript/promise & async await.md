@@ -34,3 +34,18 @@ async function getHello() {
 }
 getHello();
 ```
+
+```
+function setTimeoutPromise(ms) {
+  return new Promise((resolve) => setTimeout(()=>{resolve()}, ms));
+}
+async function getHello() {
+  try {
+    await setTimeoutPromise(3000);
+    console.log("3초뒤 안녕");
+  } catch (e) {
+    console.log(e);
+  }
+}
+getHello();
+```
