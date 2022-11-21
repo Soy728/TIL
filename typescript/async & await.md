@@ -86,3 +86,7 @@ const foo = async() => {
 
 foo().then(console.log).catch(console.error);
 ```
+
+<br />
+
+`모던 자바스크립트 deep dive을 읽고 정리하였습니다.`
