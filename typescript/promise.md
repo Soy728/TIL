@@ -16,6 +16,9 @@ a();
 // a -> b
 ```
 
+<br />
+<br />
+
 **동기처리**: 현재 실행중인 태스크가 종료할때까지 다음에 실행될 태스크가 대기하는 방식
 자바스크립트는 동기적이다.
 
@@ -29,6 +32,8 @@ a();
 
 //c -> a
 ```
+
+<br />
 
 **비동기 함수**: 함수내에 비동기적으로 동작하는 코드를 포함한 함수
 <br />
@@ -49,7 +54,7 @@ ex) setTimeout은 비동기 함수이다. `콜백함수의 호출`이 **비동�
 <br />
 콜백 헬은 보기에도 복잡하고 에러 처리 한계가 존재한다.
 
-- 콜백 함수를 이용한 비동기 처리의 한계(에러 처리)
+- 콜백 함수를 이용한 비동기 처리의 한계 **(에러 처리)**
 
 ```
 try{
@@ -59,8 +64,6 @@ catch(e){
     //에러를 캐치하지 못한다.
     console.log(e);
 }
-
-//
 ```
 
 setTimeout 함수의 콜백 함수가 실행될때 setTimeout 함수는 이미 콜 스택에서 제거된 상태다. 이것은 setTimeout 함수의 콜백함수를 호출 한 것이 setTimeout 함수가 아니라는 것을 의미한다..(?)
@@ -85,7 +88,6 @@ setTimeout의 콜백함수의 호출자가 setTimeout 함수라면, 콜스택의
 
 에러는 호출자 방향으로 전파된다. 즉, 콜 스택의 아래 방향으로 전파된다. 하지만 setTimeout 함수의 콜백 함수를 호출 한 것은 setTimeout 함수가 아니다. 띠라서 setTimeout 함수의 콜백 함수가 발생시킨 에러는 catch 블록에서 캐치되지 않는다.
 
-<br />
 <br />
 <br />
 
@@ -143,6 +145,8 @@ fulfilled, reject 상태에 따른 후속 처리가 필요하다.
 
 ### then, catch, finally
 
+<br />
+
 - **then (Promise.prototype.then)**
 
 ```
@@ -157,7 +161,6 @@ new Promise(_, reject => reject(new Error('실패')))
 then 메서드는 두 개의 콜백 함수를 인수로 전달 받는다.
 
 첫번째 콜백 함수는 프로미스가 fulfilled 상태(resolve 함수가 호출된 상태)가 되면 호출된다. 이때 콜백 함수는 프로미스의 비동기 처리 결과를 인수로 전달받는다.
-
 두 번째 콜백 함수는 프로미스가 reject상태(reject함수가 호출된 상태)가 되면 호출된다. 이때 콜백 함수는 프로미스의 에러를 인수로 전달받는다.
 
 - **catch (Promise.prototype.catch)**
@@ -294,6 +297,7 @@ Promise.race([
  <br />
 
 - **Promise.allSettled**
+
   <br />
   프로미스를 요소로 갖는 배열(혹은 이터러블)을 인수로 전달 받고 전달 받은 프로미스가 모두 settled된 상태가 되면 처리 결과를 배열로 반환한다. Promise.all은 reject된 프로미스가 있으면 먼저 resolve된 프로미스가 있더라도 Error를 출력하는 반면에, Promise.allSettled는 resolve, reject에 상관없이 모든 값을 배열에 담아서 리턴한다.
 
