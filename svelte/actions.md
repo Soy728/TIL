@@ -53,6 +53,8 @@ actions를 사용해서 두 개의 이벤트 함수를 만들어보자.
 1. Modal component의 **ClickOutside** 이벤트
 
 ```
+// ClickOutside.ts
+
 export function clickOutside(node: HTMLElement, callback: () => void): SvelteActionReturnType {
 	const handleClick = (event: any) => {
 		if (!node.contains(event.target)) {
@@ -71,16 +73,14 @@ export function clickOutside(node: HTMLElement, callback: () => void): SvelteAct
 ```
 
 ```
-<div
-			data-active={attr(active)}
-			data-closing={attr(closing)}
-			style={css(_style)}
-			class="container"
-			data-type={attr(modalPosition)}
-			on:click|stopPropagation
-			use:clickOutside={execClose}
-			use:onKeyDown={{ callback: execClose, key: 'Escape' }}
-		>
+// Modal component
+
+<div data-active={attr(active)}
+	data-closing={attr(closing)}
+	class="container"
+	on:click|stopPropagation
+	use:clickOutside={execClose}
+	use:onKeyDown={{ callback: execClose, key: 'Escape' }} >
 ```
 
 함수를 사용할 때, action 함수의 첫번째 인자인 `node`는 생략해주어도 된다. (선언은 꼭 해주어야함)
@@ -99,6 +99,8 @@ node.contains(event.target)은 container div안에 있는 개체를 클릭한것
 2. **onKeyDown** 이벤트
 
 ```
+// onKeyDown.ts
+
 export function onKeyDown(
 	node: HTMLElement,
 	arg: { callback: () => void; key: string }
