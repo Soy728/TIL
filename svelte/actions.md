@@ -48,8 +48,9 @@ export function longpress(node, duration) {
 
 actions를 사용해서 두 개의 이벤트 함수를 만들어보자.
 <br />
+<br />
 
-1. Modal component의 ClickOutside 이벤트
+1. Modal component의 **ClickOutside** 이벤트
 
 ```
 export function clickOutside(node: HTMLElement, callback: () => void): SvelteActionReturnType {
@@ -87,13 +88,15 @@ export function clickOutside(node: HTMLElement, callback: () => void): SvelteAct
 <br />
 
 액션 이벤트를 container div에 달아주었다. container div는 모달 컴포넌트이다. 따라서 **node는 container div**인 것을 알 수 있다.
-이떄 click을 하면 event가 일어나는데 event.target은 사용자가 클릭한 개체이다.  
+이떄 click을 하면 event가 일어나는데 event.target은 사용자가 클릭한 개체이다.
+
 node.contains(event.target)은 container div안에 있는 개체를 클릭한것인지에 대한 boolean 값을 반환한다.
+
 따라서 !node.contains(event.target)는 Modal 객체에 포함되지않는 객체(외부)를 클릭시 콜백함수 실행하도록 설계되어있다.
 
 <br />
 
-2. onKeyDown 액션
+2. **onKeyDown** 이벤트
 
 ```
 export function onKeyDown(
