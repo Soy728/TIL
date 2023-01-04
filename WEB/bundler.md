@@ -1,0 +1,108 @@
+# Bundling
+
+모듈들의 의존성 관계를 파악하여 그룹화시켜주는 작업.
+<br />
+`모듈: 분리된 파일`
+
+```
+<script src="jquery.js"></script>
+<script src="zepto.js"></script>
+<script>
+window.$ // ???
+</script>
+```
+
+import, export가 생성되기 이전에 js를 불러오는 레거시 방식이다.
+document.~~로 돔을 직접 건들이고, 파일이 늘어나며 어떤 파일을 먼저 불러오는지에따라 결과가 달라진다.
+
+<br />
+
+1. 여러개의 파일을 브라우저에서 로딩한다면 네트워크가 그만큼 소모되어 속도가 저하된다.
+   <br />
+2. 모듈 간의 변수 충돌 등의 위험성이 존재한다.
+   <br />
+
+모듈을 효율적으로 관리하기 위한 것이 CommonJS, AMD 이다.
+
+### CommonJS
+
+모듈의 dependency를 정의하는 명세.
+모듈건 어떨게 의존성을 가지게 할지 정의한다.
+
+- commonJS
+
+`require`와 `module.exports` | `exports`
+
+export 와 module.export차이
+
+```
+// exports로 내보내기
+//func.js
+function func1 (param) {
+	// ...
+}
+
+function func2 (param) {
+	// ...
+}
+
+exports.func1 = func1
+exports.func2 = func2
+```
+
+```
+//require로 가져오기
+const obj = require('./func')
+
+obj.func1(10)
+obj.func2(20)
+```
+
+```
+// module.exports로 내보내기
+// func.js
+const obj = {
+
+    func1: function (num) {
+    	// ...
+    },
+
+    func2: function (num) {
+    	// ...
+    }
+}
+
+module.exports = obj
+```
+
+```
+//require로 가져오기
+const obj = require('./func')
+
+obj.func1(10)
+obj.func2(20)
+```
+
+<br />
+
+- 모듈화
+
+```
+스코프(Scope): 모든 모듈은 자신만의 독립적인 실행 영역이 있어야 한다.
+정의(Definition): 모듈 정의는 exports 객체를 이용한다.
+사용(Usage): 모듈 사용은 require 함수를 이용한다.
+```
+
+ES2015(ES6)에서 모듈(module)을 도입함.
+
+![bundler](https://blog.kakaocdn.net/dn/cNBE4q/btq4K9syJFE/KboaLr30F7STXxdVqsLUI0/img.png)
+
+따라서 모듈을 번들링하는 작업이 필요하다.
+
+번들러 종류
+
+1. Webpack
+2. browserify
+3. Parcel
+
+   ...
