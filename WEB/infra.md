@@ -1,5 +1,9 @@
 # Infra
 
+<br /> !! Infra 공부는 더 필요함
+<br />
+<br />
+
 ## Infra
 
 애플리케이션을 가동시키기 위해 필요한 하드웨어나 OS, 미들웨어, 네트워크 등 시스템의 기반.
@@ -33,7 +37,7 @@ S3는 Simple Storage Service의 약어입니다. 말 그대로 저장소 역할�
 
 <br />
 
-![](../image/stamper_infra.png)
+![stamper](../image/stamper_infra.png)
 
 ec2라는 서버 인스턴스를 빌린다. mintscan-hub-data는 서버에 ec2를 통해 데이터베이스, 노드의 데이터를 가져오는 역할을 한다. ec2서버는 데이터를 s3에 저장한다.
 ec2가 s3에게 주는 데이터의 형태는 json, dat등 여러 형태일 수 있다.
