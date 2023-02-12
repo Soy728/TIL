@@ -16,3 +16,9 @@ protobuf 직렬화는 deterministic하지 않다. 따라서 cosmos sdk에서는 
 
 어떤 유저든 유효한 트랜젝션을 위한 `body`와 `auth_info`를 만들 수 있고, protobuf를 통해 두개의 메세지로 직렬화된다.
 그런 다음 `TxRaw`는 `body`와 `auth_info`의 사용자의 정확한 이진 표현을 각각 `body_bytes`와 `auth_info_bytes`라고 하는 핀으로 고정합니다
+
+모든 서명자들에 의해 서명이 되면 `body_bytes` 와 `auth_info_bytes`, `signatures`는 `TxRaw`로 합쳐진다. 그 다음에 네트워크로 브로드 캐스트 된다.
+
+
+2. SIGN_MODE_LEGACY_AMINO_JSON
+
