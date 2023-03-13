@@ -1,0 +1,28 @@
+// 들어온 데이터로 처리: 유니크바이
+// 있는거 사용
+
+
+기존에 있는 enum타입 사용
+~~~
+	const items = _(Proposal.VoteUnitOption)
+		.map((d) => ({
+			id: d,
+			text: Proposal.getOptionString(d)
+		}))
+		.value();
+
+~~~
+
+
+드롭다운
+~~~
+datas = _(data)
+			.filter((f) => {
+				if (selectedOption === Proposal.VoteUnitOption.ALL) {
+					return true;
+				}
+				return f.vote.option === selectedOption;
+			})
+			
+			.value();
+~~~
