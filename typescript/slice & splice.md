@@ -52,10 +52,12 @@ console.log(arr);
 ### remember
 
 - 인자
+
   slice(시작 인덱스, 끝 인덱스)
   splice(시작인덱스, 자를 요소의 개수)
 
 - 원본 데이터
+
   slice: 원본데이터 유지, slice는 잘린 배열 return
   splice: 원본데이터 변경(잘린 값 제거), splice는 잘린값 return
 
