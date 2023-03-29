@@ -58,3 +58,6 @@ console.log(arr);
 - 원본 데이터
   slice: 원본데이터 유지, slice는 잘린 배열 return
   splice: 원본데이터 변경(잘린 값 제거), splice는 잘린값 return
+
+자른 값을 확인하고 싶을 떈 slice를 사용하고,
+자른 값을 실제로 이용하거나 자르고 남은 배열을 쓰고 싶다면 splice를 사용해라.
