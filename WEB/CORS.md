@@ -81,16 +81,11 @@ open은 되나 값 접근 불가.
 
   - <script src=""></script>
     script 태그로 다른 도메인을 요청하는 방식은 JSONP라고 한다. JSONP는 CORS가 활성화 되기 이전의 데이터 요청 방법이다. 이제는 보안상의 이슈로 사용 X.
-  - <img>, <video>, <audio>
+  - <img> <video> <audio>
   - <iframe>
        ...
 
     Cross-origin writes (preflight 제외)
-
-  - <script src=""></script>
-  - <img>, <video>, <audio>
-  - <iframe>
-       ...
 
     - CSRF 정책 : cross origin일 경우에 데이터에 write는 가능함. 이를 이용한 범죄를 막기 위한게 CSRF 정책.
 
