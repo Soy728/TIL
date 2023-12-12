@@ -81,7 +81,7 @@ open은 되나 값 접근 불가.
 
   - <script src=""></script>
     script 태그로 다른 도메인을 요청하는 방식은 JSONP라고 한다. JSONP는 CORS가 활성화 되기 이전의 데이터 요청 방법이다. 이제는 보안상의 이슈로 사용 X.
-  - <img> <video> <audio>
+  - `<img>` `<video>` `<audio>`
   - <iframe>
        ...
 
